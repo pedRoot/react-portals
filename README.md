@@ -10,11 +10,54 @@ las capas ya existentes y el maquetado existente no es cosa sencilla ni puede to
 Este pequeña introducción quiere demostrar el efecto que puede encontrarse al trabajar
 con modales usando Portals y no usándolos.
 
+### Renderizado sin portals
+
+```html
+<div id="root">
+  <div class="container">
+    <div class="button-container">
+      <button class="button">Not Portal</button>
+      <button class="button">With Portal</button>
+    </div>
+    <div>
+      <div class="overlay"></div>
+      <div class="modal">
+        <h2>Epale gente...</h2>
+        <button class="close">X</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Renderizado con portals dinámicos
+
+```html
+<body>
+  <div id="root">
+    <div class="container">
+      <div class="button-container">
+        <button class="button">Not Portal</button>
+        <button class="button">With Portal</button>
+      </div>
+      <div></div>
+    </div>
+  </div>
+  <div id="l0ual636">
+    <div class="overlay"></div>
+    <div class="modal">
+      <h2>Saludos Sr. l0ual636</h2>
+      <button class="close">X</button>
+    </div>
+  </div>
+</body>
+```
+
+## Fuentes
+
 [Documentación Oficial](https://reactjs.org/docs/portals.html)
 
 [Documentación de apoyo](https://blog.bitsrc.io/understanding-react-portals-ab79827732c7)
-
-[Página de la prueba](https://pedroot.github.io/react-portals/)
 
 ## ¿Cómo publicar en github pages?
 
@@ -27,3 +70,5 @@ con modales usando Portals y no usándolos.
 A la hora de querer publicar una actualización de la app, hacer el predeploy y luego deploy.
 
 **Para conocer la dirección de la pagina creada**, visitar: https://github.com/*usuario*/*nombre-repositorio*/settings/pages
+
+[Página de la prueba](https://pedroot.github.io/react-portals/)
