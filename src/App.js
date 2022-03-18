@@ -8,34 +8,36 @@ export default function App() {
   const [isOpenNotPortal, setIsOpenNotPortal] = useState(false);
   const [isOpenWithPortal, setIsOpenWithPortal] = useState(false);
 
-  const [namePortalDynamic, setNamePortalDynamic] = useState();
-  const handleChangeName = () => {
-    setNamePortalDynamic(Date.now().toString(36));
-    setIsOpenWithPortal(true);
-  };
-
   return (
     <>
       <div className="container">
         <div className="button-container">
-          <button className="button" onClick={() => setIsOpenNotPortal(true)}>
+          <button
+            className="button"
+            onClick={() => setIsOpenNotPortal(true)}
+            disabled={isOpenNotPortal}
+          >
             Not Portal
           </button>
-          <button className="button" onClick={() => handleChangeName()}>
+          <button
+            className="button"
+            onClick={() => setIsOpenWithPortal(true)}
+            disabled={isOpenWithPortal}
+          >
             With Portal
           </button>
         </div>
-        <div>
-          <Modal
-            message="Epale gente..."
-            close={isOpenNotPortal}
-            onClose={() => setIsOpenNotPortal(false)}
-          />
+        <div id="showModalHere">
+          {isOpenNotPortal && (
+            <Modal
+              message="Epale gente..."
+              onClose={() => setIsOpenNotPortal(false)}
+            />
+          )}
           {isOpenWithPortal && (
-            <Portal id={namePortalDynamic}>
+            <Portal>
               <Modal
-                message={`Saludos Sr. ${namePortalDynamic}`}
-                close={isOpenWithPortal}
+                message={`Saludos desde un portal.`}
                 onClose={() => setIsOpenWithPortal(false)}
               />
             </Portal>
